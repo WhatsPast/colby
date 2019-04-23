@@ -1,0 +1,292 @@
+/* Table of Contents
+/* ------------------------------------------------------------
+
+This is a development CSS file which is built to a minified
+production stylesheet in assets/built/screen.css
+
+1.  Global Styles
+2.  Old Stuff from Casper
+3.  Typography
+4.  Grid
+5.  SideBar
+6.  Header
+7.  Post/Page
+8.  Footer
+9.  Code
+
+*/
+
+/* 1. Global - Set up the things
+/* ---------------------------------------------------------- */
+@import "global.css";
+
+body {
+    background: var(--background-color);
+}
+
+.img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+    text-indent: -9999px;
+}
+
+
+/* 2. Old Casper Stuff
+/* ---------------------------------------------------------- */
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main {
+    z-index: 100;
+    flex-grow: 1;
+}
+
+/* Full width page blocks */
+.outer {
+    position: relative;
+    padding: 0 4vw;
+}
+
+/* Centered content container blocks */
+.inner {
+    margin: 0 auto;
+    max-width: 1040px;
+    width: 100%;
+}
+
+/* Usage:
+
+<div class="outer">
+    <div class="inner">
+        Centered content
+    </div>
+</div>
+
+*/
+
+@media (min-width: 900px) {
+    .home-template .post-feed,
+    .tag-template .post-feed,
+    .author-template .post-feed {
+        margin-top: -70px;
+        padding-top: 0;
+    }
+    .home-template .site-nav {
+        position: relative;
+        top: -70px;
+    }
+}
+
+
+/* Image captions
+
+Usage (In Ghost editor):
+
+![img](/some/image.jpg)
+<small>Your image caption</small>
+
+*/
+.post-full-content img + br + small {
+    display: block;
+    margin-top: -3em;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+
+/* Tables */
+.post-full-content table {
+    display: inline-block;
+    overflow-x: auto;
+    margin: 0.5em 0 2.5em;
+    max-width: 100%;
+    width: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-family: "GreyCliffCF", -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.6rem;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.post-full-content table {
+    -webkit-overflow-scrolling: touch;
+    background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+    background-attachment: scroll, scroll;
+    background-size: 10px 100%, 10px 100%;
+    background-repeat: no-repeat;
+}
+
+.post-full-content table td:first-child {
+    background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+    background-size: 20px 100%;
+    background-repeat: no-repeat;
+}
+
+.post-full-content table td:last-child {
+    background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+    background-position: 100% 0;
+    background-size: 20px 100%;
+    background-repeat: no-repeat;
+}
+
+.post-full-content table th {
+    color: var(--darkgrey);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-align: left;
+    text-transform: uppercase;
+    background-color: color(var(--whitegrey) l(+4%));
+}
+
+.post-full-content table th,
+.post-full-content table td {
+    padding: 6px 12px;
+    border: color(var(--whitegrey) l(-1%) s(-5%)) 1px solid;
+}
+
+/* 3. Typography
+/* ---------------------------------------------------------- */
+
+  /* Webfont: GreyCliffCF Medium */
+  @font-face {
+    font-family: 'GreyCliffCF';
+    src: url('webfont/GreycliffCF-Medium.eot'); /* IE9 Compat Modes */
+    src: url('webfont/GreycliffCF-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('webfont/GreycliffCF-Medium.woff2') format('woff2'), /* Modern Browsers */
+         url('webfont/GreycliffCF-Medium.woff') format('woff'), /* Modern Browsers */
+         url('webfont/GreycliffCF-Medium.ttf') format('truetype');
+         font-style: normal;
+         font-weight: normal;
+         text-rendering: optimizeLegibility;
+   }
+   /* Webfont: GreyCliffCF Medium Oblique */
+   @font-face {
+     font-family: 'GreyCliffCF';
+     src: url('webfont/GreycliffCF-MediumOblique.eot'); /* IE9 Compat Modes */
+     src: url('webfont/GreycliffCF-MediumOblique.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('webfont/GreycliffCF-MediumOblique.woff2') format('woff2'), /* Modern Browsers */
+          url('webfont/GreycliffCF-MediumOblique.woff') format('woff'), /* Modern Browsers */
+          url('webfont/GreycliffCF-MediumOblique.ttf') format('truetype');
+          font-style: italic;
+          font-weight: normal;
+          text-rendering: optimizeLegibility;
+    }
+
+  /* Webfont: GreyCliffCF Bold */
+  @font-face {
+    font-family: 'GreyCliffCF';
+    src: url('webfont/GreycliffCF-Bold.eot'); /* IE9 Compat Modes */
+    src: url('webfont/GreycliffCF-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('webfont/GreycliffCF-Bold.woff2') format('woff2'), /* Modern Browsers */
+         url('webfont/GreycliffCF-Bold.woff') format('woff'), /* Modern Browsers */
+         url('webfont/GreycliffCF-Bold.ttf') format('truetype');
+         font-style: normal;
+         font-weight: bold;
+         text-rendering: optimizeLegibility;
+   }
+   /* Webfont: GreyCliffCF Bold Oblique */
+   @font-face {
+     font-family: 'GreyCliffCF';
+     src: url('webfont/GreycliffCF-BoldOblique.eot'); /* IE9 Compat Modes */
+     src: url('webfont/GreycliffCF-BoldOblique.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('webfont/GreycliffCF-BoldOblique.woff2') format('woff2'), /* Modern Browsers */
+          url('webfont/GreycliffCF-BoldOblique.woff') format('woff'), /* Modern Browsers */
+          url('webfont/GreycliffCF-BoldOblique.ttf') format('truetype');
+          font-style: italic;
+          font-weight: bold;
+          text-rendering: optimizeLegibility;
+    }
+
+
+      /* Webfont: GreyCliffCF Heavy */
+      @font-face {
+        font-family: 'GreyCliffCF';
+        src: url('webfont/GreycliffCF-Heavy.eot'); /* IE9 Compat Modes */
+        src: url('webfont/GreycliffCF-Heavy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+             url('webfont/GreycliffCF-Heavy.woff2') format('woff2'), /* Modern Browsers */
+             url('webfont/GreycliffCF-Heavy.woff') format('woff'), /* Modern Browsers */
+             url('webfont/GreycliffCF-Heavy.ttf') format('truetype');
+             font-style: normal;
+             font-weight: 900;
+             text-rendering: optimizeLegibility;
+       }
+       /* Webfont: GreyCliffCF Heavy Oblique */
+       @font-face {
+         font-family: 'GreyCliffCF';
+         src: url('webfont/GreycliffCF-HeavyOblique.eot'); /* IE9 Compat Modes */
+         src: url('webfont/GreycliffCF-HeavyOblique.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+              url('webfont/GreycliffCF-HeavyOblique.woff2') format('woff2'), /* Modern Browsers */
+              url('webfont/GreycliffCF-HeavyOblique.woff') format('woff'), /* Modern Browsers */
+              url('webfont/GreycliffCF-HeavyOblique.ttf') format('truetype');
+              font-style: italic;
+              font-weight: 900;
+              text-rendering: optimizeLegibility;
+        }
+
+h1 {
+  font-size: 6.4rem;
+  line-height: 6.4rem;
+  font-weight: 900;
+  color: var(--header-color);
+}
+h2 {
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  font-weight: bold;
+  color: var(--header-color);
+}
+h3 {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: bold;
+  color: var(--header-color);
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 3.2rem;
+  font-weight: normal;
+  color: var(--text-color);
+}
+p strong { font-weight:bold; }
+p em { font-style: italic; }
+p span {
+  background-color: var(--highlight-color);
+  padding-left:0.5rem;
+  padding-right:0.5rem;
+}
+.smalltext {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+.subtext {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+/* Links */
+p a { color: var(--link-color);}
+
+
+/* 4. Grid
+/* ---------------------------------------------------------- */
+
+.post-content {
+  width:100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
